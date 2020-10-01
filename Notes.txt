@@ -1,5 +1,17 @@
 Github/Raspberry Pi Procedures
 
+Getting Help
+
+Help with git
+  git --help
+  git add --help
+  git pull --help
+  git push --help
+
+General help with a command X
+  man X
+
+
 Starting position
 
 1. Type 'git status'
