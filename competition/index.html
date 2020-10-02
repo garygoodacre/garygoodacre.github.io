@@ -10,10 +10,11 @@
 
   <style>
 
-  html{
-    height: 100%;}
+  html {
+    height: 100%;
+  }
 
-  body{
+  body {
     background-color: black;
     color: white;
     font-family: verdana;
@@ -22,19 +23,48 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;}
+    justify-content: space-between;
+  }
 
-  main{
-  flex:1;
-  position:relative;}
+  main {
+    flex: 1;
+    position: relative;
+  }
 
-  img{object-fit: contain;width: 100%; height: 100%;}
+  header {
+    text-align: center;
+  }
 
+  footer {
+    text-align: center;
+  }
 
-  h1{ font-size: 24px;}
-  
-  body * {outline: 1px solid red; padding: 10px;}
+  img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
 
+  h1 {
+    font-size: 24px;
+  }
+
+  #caption {
+    text-align: center;
+    font-size: 1.4em;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  nav button {
+    font-size: 3em;
+    font-family: monospace;
+  }
 
   </style>
 
@@ -42,34 +72,56 @@
 
 <body>
 
-<header>
+  <header>
+    <h1>PPS Competition</h1>
+  </header>
 
-<h1>Gary Goodacre</h1>
+  <main><img id="preview"/></main>
 
-</header>
+  <div>
+    <p id="caption"></p>
+  </div>
 
-<main>
-<img src="../assets/images/1/1l.jpg" /> 
+  <nav>
+    <button id="previous">&lt;</button>
+    <button id="next">&gt;</button>
+  </nav>
 
+  <footer>
+    <h1>&copy; Gary Goodacre</h1>
+  </footer>
 
+  <script>
 
-</main>
+fetch('files.json')
+  .then(response => response.json())
+  .then(files => {
 
-<nav>
-<button>
-previous
-</button>
-<button>
-next
-</button>
-</nav>
+    var previousButton = document.querySelector('#previous')
+    var nextButton = document.querySelector('#next')
+    var preview = document.querySelector('#preview')
 
-<footer>
-<h1>Footer</h1>
+    var currentFile = 0
 
-</footer>
+    var updatePreview = function () {
+      console.log('Displaying:', files[currentFile])
+      preview.setAttribute('alt', files[currentFile].caption)
+      preview.setAttribute('src', '/assets/images/Street/' + encodeURIComponent(files[currentFile].filename))
+      caption.innerText = files[currentFile].caption
+    }
+    updatePreview()
 
+    var shiftIndex = function (amount) {
+      return function () {
+        currentFile = (currentFile + amount + files.length) % files.length
+        updatePreview()
+      }
+    }
 
-  <script></script>
+    previousButton.addEventListener('click', shiftIndex(-1))
+    nextButton.addEventListener('click', shiftIndex(1))
+  });
+
+  </script>
 </body>
 </html>
