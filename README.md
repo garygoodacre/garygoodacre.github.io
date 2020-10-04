@@ -6,8 +6,24 @@ Folder per page containing:
 
 - 'index.html' - the content
 - 'images/' - folder of images for that page
-- 'generate.sh' - script to generate 'files.json' from 'images/*'
+- 'generate.sh' - script (run with `./generate.sh` from with the folder) to generate 'files.json' from 'images/*'
 - 'files.json' - list of images to display, generated from 'generate.sh'
+
+### Adding a new photo viewer page
+
+- Create a folder with the appropriate name.
+- Copy `index.html` & `generate.sh`
+- Create `images/` folder
+- Add images you want, with filenames in the format: `num name#author.jpg` (e.g `02 What#Gary.jpg`)
+- Open a terminal and change directory into the new folder (`cd new-folder-name`)
+- Run `./generate.sh` to create/update the `files.json`
+- Run `ls` to check the file was created
+- Run `jq . files.json` to view it
+- Go to the top-level (`cd ..` if you're in the sub folder)
+- Run `./serve.sh` - to check locally
+- Open `0.0.0.0:8000` in firefox to view, add `/pagename` (e.g `/competition`)
+- Once you're done, press `Ctrl + C` to end the serve script
+- Then proceed with git things
 
 ### Serving locally
 
@@ -31,19 +47,19 @@ git push --help
 man X
 ```
 
-*Starting position*
+### Starting position
 
 1. Type 'git status'
 2. Decide what to do (discard & reset e.g)
 
-*Discard local changes and pull from github*
+### Discard local changes and pull from github
 
 1. 'git fetch' (update local cache of github)
 2. 'git reset --hard origin/master' (remove local changes and get up to date with github)
 
-*Raspberry Pi Changes, send to Github*
+### Local Changes, send to Github
 
-1. make changes
+1. Make changes
 2. Terminal, select folder (cd), ~/Documents/garygoodacre.github.io
 3. Type 'git status' (differences)
 4. Type 'git add -A' (track changes)
