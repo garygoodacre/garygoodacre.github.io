@@ -60,7 +60,7 @@ man X
 ### Local Changes, send to Github
 
 1. Make changes
-2. Terminal, select folder (cd), ~/Documents/garygoodacre.github.io
+2. Terminal, select folder cd ~/Documents/github/garygoodacre.github.io
 3. Type 'git status' (differences)
 4. Type 'git add -A' (track changes)
 5. Type 'git commit' (opens text editor to describe changes)
