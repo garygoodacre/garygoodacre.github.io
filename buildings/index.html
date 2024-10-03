@@ -18,13 +18,9 @@
     font-size: 24px;
   }
 
-  #caption {
+  .panel {
     font-size: 22px;
     text-align: center;
-  }
-
-  #copyright {
-    font-size: 16px;
   }
 
   body {
@@ -79,6 +75,10 @@
     padding: 5px;
   }
 
+  a, a:visited {
+    color: white;
+  }
+
   </style>
 
 </head>
@@ -93,8 +93,14 @@
   <footer>
     <button id="previous">&lt;</button>
     <div>
-      <p id="caption"></p>
-      <h2 id="copyright">&copy; Gary Goodacre</h2>
+      <p class="panel">
+        <span id="caption"></span>
+        -
+        <span id="copyright">&copy; Gary Goodacre</span>
+      </p>
+      <p>
+        <a href="../">Home</a>
+      </p>
     </div>
     <button id="next">&gt;</button>
   </footer>
