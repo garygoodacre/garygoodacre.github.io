@@ -2,6 +2,9 @@
 <html>
 <head>
   <title>gary goodacre photography</title>
+  <meta name="description" content="Gary Goodacre photography">
+  <meta name="author" content="Gary Goodacre">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 
 html {
@@ -13,12 +16,37 @@ html {
   font-size: 1.5em;
 }
 
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gary-image {
+  flex: 1;
+  object-fit: contain;
+  max-width: 100%;
+}
+
 h1 {
   font-weight: normal;
 }
 
 h2 {
   font-weight: normal;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  gap: 0 2em;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 1em;
 }
 
 ul {
@@ -43,23 +71,27 @@ a, a:visited {
   </header>
 
   <img
+    class="gary-image"
     src="assets/DSCF9821.JPG"
     alt="Gary Goodacre"
     width="500px"
   >
 
   <main>
-    <h2>People</h2>
 
-    <ul>
-      <li><a href="glimpses">glimpses</a></li>
-      <li><a href="streets">streets</a></li>
-      <li><a href="rockers">rockers</a></li>
-      <li><a href="bikers">bikers</a></li>
-      <li><a href="portraits">portraits</a></li>
-      <li><a href="galleries">galleries</a></li>
-      <li><a href="windows">windows</a></li>
+    <section>
+      <h2>People</h2>
+      <ul>
+        <li><a href="glimpses">glimpses</a></li>
+        <li><a href="streets">streets</a></li>
+        <li><a href="rockers">rockers</a></li>
+        <li><a href="bikers">bikers</a></li>
+        <li><a href="portraits">portraits</a></li>
+        <li><a href="galleries">galleries</a></li>
+        <li><a href="windows">windows</a></li>
       </ul>
+    </section>
+
   </main>
 
   <footer>
